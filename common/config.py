@@ -15,13 +15,13 @@ if getattr(sys, 'frozen', False):
         print('parser: cannot find config')      
 else:
     # Bianry
-    config_path = os.path.join(os.path.dirname(__file__), 'config.ini')
+    config_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    print(config_path)
     print('Binary File')
-    if config.read(config_path):
+    if config.read(config_path+'\config.ini'):
         print('parser: binary find config')
     else:
         print('parser: binary cannot find config')
-
 
 CONFIG_IMAGE = config['IMAGE_PROPERTIES']
 IMAGE_FILE_EXTESION = CONFIG_IMAGE['FILE_EXTENSION']

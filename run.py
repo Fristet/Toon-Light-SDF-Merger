@@ -129,6 +129,7 @@ sdf_image = interpolate_pixels(image_average)
 
 if IMAGE_EQUALIZE == 'True':
     sdf_image = equalize_histogram(sdf_image)
+    sdf_image = interpolate_pixels(sdf_image, num_steps=1, interpolation_width=2)
 
 if IMAGE_UPSCALE_AFTER_PROGRESS == 'True':
     sdf_image = cv2.resize(sdf_image, dsize=(int(IMAGE_UPSCALE_AFTER_PROGRESS_RESOLUTION),int(IMAGE_UPSCALE_AFTER_PROGRESS_RESOLUTION)))
